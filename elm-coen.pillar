@@ -1,0 +1,27 @@
+!Programmeerparadigma's: Functional Programming in ELM
+
+
+${inputFile:Chapters/infoElmGeneral/infoElmGeneral.pillar}$
+
+${inputFile:Chapters/infoElmSettingUp/infoElmSetup.pillar}$
+
+${inputFile:Chapters/examples/01-button.pillar}$
+${inputFile:Chapters/examples/02-field.pillar}$
+${inputFile:Chapters/examples/03-form.pillar}$
+${inputFile:Chapters/examples/04-random.pillar}$
+${inputFile:Chapters/examples/05-http.pillar}$
+${inputFile:Chapters/examples/06-clock.pillar}$
+
+${inputFile:Chapters/examples/07-websockets.pillar}$
+
+${inputFile:Chapters/examples/08-checkboxes.pillar}$
+${inputFile:Chapters/examples/09-radio.pillar}$
+
+${inputFile:Chapters/examples/moreExamples.pillar}$
+
+
+!!Intro Lists
+${inputFile:Chapters/introLists/introLists.pillar}$
+
+!!Wiskundige functie
+${inputFile:Chapters/wiskunde/functieProgramma.pillar}$

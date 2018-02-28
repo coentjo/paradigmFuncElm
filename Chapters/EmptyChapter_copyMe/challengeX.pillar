@@ -1,0 +1,46 @@
+{ "title": "Challenge X" }
+@cha:challengeX
+
+%!!Introduction
+
+%The collection classes form a loosely-defined group of general-purpose
+%subclasses of ==Collection== and ==Stream==. Many of these (like ==Bitmap==,
+%==FileStream== and ==CompiledMethod==) are special-purpose classes crafted for
+%use in other parts of the system or in applications, and hence not categorized
+%as ''Collections'' by the system organization. For the purposes of this chapter,
+%we use the term ''Collection Hierarchy'' to mean ==Collection== and its
+
+%Figure *@fig:CollClassesTree*. Streams will be discussed separately in
+%Chapter *: Streams>../Streams/Streams.pillar@cha:streams*.
+%+Some picture.>file://figures/CollectionHierarchy.png|label=fig:CollClassesTree+
+
+%!!The varieties of collections
+%@sec:varieties
+
+%[[[
+%	Console.WriteLine("Butterfly");
+%]]]
+
+%The message ==select:== is understood by ''all'' collections in Pharo.
+
+%The table below summarizes the standard protocols supported by most of
+
+%|!Header1 |!Header2 |
+%| ==accessing== | ==size==, ==capacity==, ==at:==, ==at:put:== |
+%| ==testing==	| ==isEmpty==, ==includes:==, ==contains:==, ==occurrencesOf:== |
+
+%;==Sequenceable:==
+%:Instances of all subclasses of ==SequenceableCollection== start from ...
+%;==Sortable:==
+%:A ==SortedCollection== maintains ...
+
+
+%!!Collection implementations
+%@sec:implementation
+
+%As shown in Figure
+%*@fig:collsByImpl*, five main implementation techniques are employed.
+
+
+%!!!!!Removing Elements
+

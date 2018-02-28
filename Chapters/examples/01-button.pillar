@@ -1,0 +1,70 @@
+!!!01-button: Increase / Decrease
+
+Open 2 tabs op dezelfde app en je ziet dat ze elk een eigen sessie hebben.
+
+De ==back==-button brengt je meteen(!) terug in het ''menu''.
+
+Een elm-programma ziet er alsvolgt uit:
+[[[
+main =
+  Html.beginnerProgram
+    { model = model
+    , view = view
+    , update = update
+    }
+]]]
+De naam ''beginnerProgram'' lijkt een bestaande naam te zijn, of is het de
+naam die de programmeur aan dit programma geeft??
+
+De indeling doet erg denken aan ==Model View Controller==.
+
+[[[
+type alias Model = Int
+model : Model
+view : Model -> Html Msg
+update : Msg -> Model -> Model
+]]]
+Dit laat zien dat het ==model== letterlijk een getal is,
+de ==view== is een ==function== die, gegeven een ''Model'',
+een ''Html Msg'' teruggeeft: een ''Html''-page én(?) een ''Msg''?
+De ==update== tot slot is een ==function== gegeven een ''Msg'' een
+==function== terug geeft die een ''Model'' omzet naar een nieuw ''Model''.
+
+@@note doet erg aan een ==transition function== bij een ''eindige machine'' denken.
+
+De ==Msg== wordt met een ''enumeratie'' gedefineerd
+[[[
+type Msg
+  = Increment
+  | Decrement
+]]]
+
+en de function ''update'' met parameters ''msg'' en ''model'' als
+[[[
+update msg model =
+  case msg of
+    Increment ->
+      model + 1
+
+    Decrement ->
+      model - 1
+]]]
+Ik vraag me af of ik deze function kan gebruiken als ==update msg==
+(dus dat er een nieuwe function uitkomt van type ==Model -> Model==)?
+
+De code ziet er elegant uit!
+
+Om het af te maken wordt met
+[[[
+view model =
+  div []
+    [ button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (toString model) ]
+    , button [ onClick Increment ] [ text "+" ]
+    ]
+]]]
+(blijkbaar) gedefinieerd dat
+-div een ==div==-element aan de html toevoegt.
+-button een button, met aan de onClick de ''Msg'' ''Decrement'' (of ''Increment'' bij de andere), en de opgegeven ''text''.
+
+De ==[]== suggereert dat er een ''array''-achtige constructie (''sequentie''?) gebruikt wordt.

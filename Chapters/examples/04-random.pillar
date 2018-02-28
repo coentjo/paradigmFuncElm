@@ -1,0 +1,30 @@
+!!!04-random / Dobbelsteen.
+
+Behalve ''view'' en ''update'' duiken hier opeens ook
+een onderdeel ''subscriptions'' en ''init'' op (terwijl ''model'' ontbreekt):
+[[[
+main =
+  Html.program
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
+]]]
+
+Na een tijdje staren (''Wat zorgt er voor dat er 'iets' gebeurt,
+dat de ==init== meteen getriggerd wordt?'') zie ik dat de andere onderdelen
+functies zijn, terwijl ==init== een waarde is:
+[[[
+init : (Model, Cmd Msg)
+init =
+  (Model 1, Cmd.none)
+]]]
+Wat ==Cmd== is wordt hier niet duidelijk, ook wat ==Sub Msg== is is me nog niet duidelijk:
+
+
+[[[
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Sub.none
+]]]
