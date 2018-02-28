@@ -14,7 +14,7 @@ In ''Atom'' heb ik zoals aangeraden ==package== ''language-elm'' geïnstalleerd.
 npm install -g elm-oracle
 ]]]
 
-Persisson error: ==sudo== needed. Hiermee lukte het.
+Permisson error: ==sudo== needed. Hiermee lukte het.
 
 %toch niet: Installed ==atom-beautify==.
 
