@@ -1,4 +1,8 @@
-!!!03-form Passwords do(n't) match name-veld en dubbel passwd-veld.
+{
+	"title": "03-form Passwords do(n't) match name-veld en dubbel passwd-veld",
+	"attribution": "Coen"
+}
+
 
 [[[
 import Html exposing (..)

@@ -1,4 +1,8 @@
-!!!08-checkboxes
+{
+	"title": "08-checkboxes",
+	"attribution": "Coen"
+}
+
 [[[
 import Html exposing (Html, fieldset, input, label, text)
 import Html.Attributes exposing (style, type_)

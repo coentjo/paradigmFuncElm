@@ -1,4 +1,8 @@
-!!!04-random / Dobbelsteen.
+{
+	"title": "04-random / Dobbelsteen",
+	"attribution": "Coen"
+}
+
 
 Behalve ''view'' en ''update'' duiken hier opeens ook
 een onderdeel ''subscriptions'' en ''init'' op (terwijl ''model'' ontbreekt):

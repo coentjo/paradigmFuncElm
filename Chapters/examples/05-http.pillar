@@ -1,4 +1,8 @@
-!!!05-http
+{
+	"title": "05-http",
+	"attribution": "Coen"
+}
+
 
 Bij openen van dit script de melding:
 [[[
@@ -33,7 +37,7 @@ init topic =
   )
 ]]]
 Dus hierdoor wordt in ==main== de ''init'' geïnitialiseerd
-op ==(Model, Cmd Msg)== 
+op ==(Model, Cmd Msg)==
 
 [[[
 -- MODEL

@@ -1,4 +1,8 @@
-!!!09-radio
+{
+	"title": "09-radio pillar",
+	"attribution": "Coen"
+}
+
 [[[
 import Html exposing (Html, Attribute, div, fieldset, input, label, text)
 import Html.Attributes exposing (name, style, type_)

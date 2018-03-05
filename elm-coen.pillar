@@ -5,18 +5,34 @@ ${inputFile:Chapters/infoElmGeneral/infoElmGeneral.pillar}$
 
 ${inputFile:Chapters/infoElmSettingUp/infoElmSetup.pillar}$
 
+!!!01-button: Increase / Decrease
 ${inputFile:Chapters/examples/01-button.pillar}$
+
+!!!02-field: nerovetsrethca.
 ${inputFile:Chapters/examples/02-field.pillar}$
+
+!!!03-form Passwords do(n't) match name-veld en dubbel passwd-veld
 ${inputFile:Chapters/examples/03-form.pillar}$
+
+!!!04-random / Dobbelsteen
 ${inputFile:Chapters/examples/04-random.pillar}$
+
+!!!05-http
 ${inputFile:Chapters/examples/05-http.pillar}$
+
+!!!06-clock
 ${inputFile:Chapters/examples/06-clock.pillar}$
 
+!!!07-websockets
 ${inputFile:Chapters/examples/07-websockets.pillar}$
 
+!!!08-checkboxes
 ${inputFile:Chapters/examples/08-checkboxes.pillar}$
+
+!!!09-radio
 ${inputFile:Chapters/examples/09-radio.pillar}$
 
+!!!More examples
 ${inputFile:Chapters/examples/moreExamples.pillar}$
 
 

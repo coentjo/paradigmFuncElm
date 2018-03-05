@@ -1,4 +1,8 @@
-!!!01-button: Increase / Decrease
+{
+	"title": "01-button: Increase / Decrease",
+	"attribution": "Coen"
+}
+
 
 Open 2 tabs op dezelfde app en je ziet dat ze elk een eigen sessie hebben.
 

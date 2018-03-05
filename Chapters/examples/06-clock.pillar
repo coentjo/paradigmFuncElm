@@ -1,4 +1,8 @@
-!!!06-clock
+{
+	"title": "06-clock",
+	"attribution": "Coen"
+}
+
 [[[
 import Html exposing (Html)
 import Svg exposing (..)

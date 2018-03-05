@@ -1,4 +1,3 @@
-
 {
 	"title": "Intro Lists",
 	"attribution": "Coen"
@@ -22,7 +21,8 @@ Reactie:
 ]]]
 ofwel ==repl== heeft gezien dat het resultaat ==42== is en dat dit een ''getal'' (==number==) is.
 
-Iets spannender (denk even na of je het antwoord van deze vermeningvuldiging al weet)
+Iets spannender (denk even na of je het antwoord van deze vermeningvuldiging
+makkelijk zelf zou kunnen berekenen)
 [[[
 42 * 38
 ]]]
@@ -71,10 +71,7 @@ Na deze definitie kun je schrijven
 [[[
 telTweeOpBij 5
 ]]]
-
-
-
-@@todo vanaf hier zijn het nog losse opmerkingen waar nog iets mee moet...
+Onthoud dit even, we komen hier zo op terug.
 
 !!!!Lists
 Typ eens in:
@@ -87,12 +84,35 @@ Resultaat:
 ]]]
 Hee, hoe komt dat? Blijkbaar wordt er een ''lijstje'' van getallen opgebouwd.
 
+Ook kun je aan een bestaande ==List== met \:\: een element toevoegen:
+[[[
+42 :: (List.range 1 9)
+]]]
+en ook meerdere elementen kan
+[[[
+83 :: 42 :: (List.range 1 9)
+]]]
+Zoals je ziet zijn haakjes niet nodig.
+
+
+
 !!!!En tel er 2 bij op...
 Het leuke van ==Lists== is dat je er berekeningen op kunt gaan toepassen.
-Stel we willen bij elk getal 2 optellen. We ''mappen'' dan de
+Stel we willen bij elk getal in de ==List== het getal 2 optellen.
+We ''mappen'' dan de ==functie== ''telTweeOpBij'' op
+""elk"" getal uit de ==List==:
 
 
 
+
+
+
+
+
+@@todo vanaf hier zijn het nog losse opmerkingen waar nog iets mee moet...
+@@todo Map
+@@todo Fold
+@@todo Filter
 
 
 !!!!Vorm van een List
@@ -100,13 +120,23 @@ Als een ==List== niet leeg is is ie van de vorm
 [[[
 element :: eenAndereList
 ]]]
-Het ''element'' voorop noemen we ook wel het ''kopelement'' (==head==),
+Het ''element'' voorop noemen we ook wel het ''kop-element'' (==head==),
 dit wordt ""voor"" de rest (een iets kortere ==List== genaamd ''eenAndereList'')
 geplakt. De enige ==List== die niet van deze vorm is is de lege ==List==
 die we noteren als ==[]==.
 
 
 
+
+
+
+
+
+
+
+@@todo vanaf hier zijn het nog losse opmerkingen waar nog iets mee moet...
+
+[ 'y' 'u' ]
 
 !!!!Lengte van een List (~recursiviteit)
 
@@ -117,7 +147,7 @@ er verschillende
 manieren om een ==List== te construeren:
 Je kunt de elementen opnoemen
 [[[
-  [2,3,5,7,13,24,57,56,33,21,3,2]
+[2,3,5,7,13,24,57,56,33,21,3,2]
 ]]]
 Let op dat er een volgorde in zit en elementen dubbel kunnen voorkomen.
 
