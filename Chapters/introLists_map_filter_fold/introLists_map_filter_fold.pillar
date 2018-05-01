@@ -291,38 +291,6 @@ List.foldr ( \s -> ( \t -> t ++ s )) "X" [ "a" , "b" , "c" ]
 ]]]
 hier is het verschil heel duidelijk te zien.
 
-!!!Binomium
-Misschien heb je wel eens gehoord van het binomium van Newton:
-
-[[[
-                       1
-										 1   1
-									 1   2   1
-								 1   2   2   1
-							 1   3   4   3   1
-						 1   4   7   7   4   1
-]]]
-en zo door...
-Het begint met het getal 1, daaronder komen rijen met steeds links én rechts een 1.
-De andere getallen zijn steeds de 2 getallen er schuin boven opgeteld.
-Misschien heb je wel eens een knikkerbaan gezien met spijkertjes in het volgende patroon:
-[[[
-                       .
-                     .   .
-                   .   .   .
-                 .   .   .   .
-               .   .   .   .   .
-]]]
-Het getal dat in het binomium staat is gelijk aan het aantal 'wegen'
-dat naar een spijkertje leidt: een knikker die er van bovenaf in rolt kan steeds links of rechts af.
-Het is bijvoorbeeld op 4 manieren mogelijk om bij een plek te komen waar een 4 staat.
-
-Van 'aantal wegen' is het een redelijk kleine stap naar de 'kans'
-dat de knikker op een bepaalde plek terecht komt.
-De getallen komen op veel plekken terug. Als je ==(a + b)^n== uitrekent staat
-de bijhorende rij (begin te tellen bij 0) voor de coëfficiënten (getallen) die voor de term komen staan:
-
-
 
 !!!!Tweedegraads vergelijking
 Zoals je vast hebt geleerd kun je de zogenaamde tweedegraads vergelijking
@@ -374,3 +342,38 @@ gelijk moet zijn aan
 eenheidsdiscriminant 10 2
 ]]]
 Is dat ook zo?
+
+
+!!!Mogelijke challenge: Binomium 
+Misschien heb je wel eens gehoord van het binomium van Newton:
+
+[[[
+                       1
+										 1   1
+									 1   2   1
+								 1   2   2   1
+							 1   3   4   3   1
+						 1   4   7   7   4   1
+]]]
+en zo door...
+Het begint met het getal 1, daaronder komen rijen met steeds links én rechts een 1.
+De andere getallen zijn steeds de 2 getallen er schuin boven opgeteld.
+Misschien heb je wel eens een knikkerbaan gezien met spijkertjes in het volgende patroon:
+[[[
+                       .
+                     .   .
+                   .   .   .
+                 .   .   .   .
+               .   .   .   .   .
+]]]
+Het getal dat in het binomium staat is gelijk aan het aantal 'wegen'
+dat naar een spijkertje leidt: een knikker die er van bovenaf in rolt kan steeds links of rechts af.
+Het is bijvoorbeeld op 4 manieren mogelijk om bij een plek te komen waar een 4 staat.
+
+Van 'aantal wegen' is het een redelijk kleine stap naar de 'kans'
+dat de knikker op een bepaalde plek terecht komt.
+De getallen komen op veel plekken terug. Als je ==(a + b)^n== uitrekent staat
+de bijhorende rij (begin te tellen bij 0) voor de coëfficiënten (getallen) die voor de term komen staan:
+
+Lukt het je een functie te definiëren in 'elm' die een rij kan genereren
+van deze getallen uit het binomium?
