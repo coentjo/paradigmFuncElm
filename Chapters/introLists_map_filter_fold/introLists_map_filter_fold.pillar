@@ -1,0 +1,376 @@
+{
+	"title": "Intro Lists",
+	"attribution": "Coen"
+}
+
+Typ op de command line
+[[[
+elm-repl
+]]]
+
+REPL staat voor ... (google hier eens op).
+
+We kunnen nu ==elm expressies== intypen die dan direct geëvalueerd worden. Bijvoorbeeld:
+
+[[[
+42
+]]]
+Reactie:
+[[[
+42 : number
+]]]
+ofwel ==repl== heeft gezien dat het resultaat ==42== is en dat dit een ''getal'' (==number==) is.
+
+Iets spannender (denk even na of je het antwoord van deze vermeningvuldiging
+makkelijk zelf zou kunnen berekenen)
+[[[
+42 * 38
+]]]
+Hee, je kunt het dus als rekenmachine gebruiken...
+Enfin, je bent waarschijnlijk niet heel erg verbaasd.
+
+Inderdaad kun je met ==+==, ==-==, ==*== en ==/== optellen,
+aftrekken, vermenigvuldigen en delen.
+
+Wat denk je dat er uitkomt als je
+[[[
+12 + 3 * 2
+]]]
+intypt? Houdt ==elm== rekening met de volgorde van berekening?
+Wordt eerst de ==+== of eerst ==*== uitgevoerd? Ofwel: is dit gelijk aan
+==( 12 + 3 ) * 2== of juist aan == 12 + ( 3 * 2) ==?
+
+!!!!Reken
+Als je zelf de volgorde wil aangeven kun je er voor kiezen op de volgende manier te
+rekenen:
+[[[
+add 12 ( multiply 3 2 )
+]]]
+Hierbij worden er 2 dingen opgeteld (''add''): het eerste is een getal, het andere is
+de uitkomst van de vermenigvuldiging van 3 en 2 (''multiply'').
+
+Stel er zou staan:
+[[[
+multiply ( add 12 3 ) 2
+]]]
+dan zou juist de uitkomst van ==12+3== vermenigvuldigd worden met 2.
+
+Nu is ''add'' een functie die
+normaalgesproken 2 parameters krijgt, maar in de taal ==elm== kun je de
+parameters 1 voor 1 aan een functie voeren. De combinatie
+==add 2== is een optelfunctie die al weet dat ie ''2+..'' gaat doen.
+
+Nu zijn ==add== en ==multiply== al bestaande ==functies==. Je kunt ook zelf
+nieuwe functies erbij programmeren. Met bijvoorbeeld
+[[[
+telTweeOpBij x = x + 2
+]]]
+wordt een nieuwe ==functie== ''telTweeOpBij'' (deze naam kun je dus zelf kiezen)
+gedefinieerd door de  al genoemde
+==add 2== constructie (deze combinatie ís ook weer een functie).
+Na deze definitie kun je schrijven
+[[[
+telTweeOpBij 5
+]]]
+Komt hier uit wat je verwacht?
+Onthoud de ==functie== ''telTweeOpBij'', we komen hier op terug.
+
+
+
+!!!!List
+Typ eens in:
+[[[
+List.range 1 9
+]]]
+Resultaat:
+[[[
+[1,2,3,4,5,6,7,8,9] : List Int
+]]]
+Hee, hoe komt dat? Blijkbaar wordt er een ''lijstje'' van getallen opgebouwd.
+
+!!!Lijsten creëren
+Een andere manier om een ==List== te creëren is
+[[[
+[ 3 , 5 , 6 , 8 ]
+]]]
+ofwel het simpelweg opsommen wat er in moet komen.
+Voorbeeld met woorden/strings er in:
+[[[
+[ "abra" , "ca" , "dabra" ]
+]]]
+Een bijzondere versie hiervan is het aanmaken van de ==lege List==:
+een ==List== zonder elementen
+[[[
+[]
+]]]
+Dat lijkt misschien niet zo bijzonder maar een lege lijst is bij het
+werken met lijsten net zo belangrijk als de getallen 0 en 1
+bij het rekenen.
+
+
+
+
+Ook kun je aan een bestaande ==List== met behulp van \:\: een element toevoegen:
+[[[
+42 :: (List.range 1 9)
+]]]
+en ook meerdere elementen kan
+[[[
+83 :: 42 :: (List.range 1 9)
+]]]
+Zoals je ziet zijn haakjes hier niet nodig.
+Op deze manier kun je een bestaande ==List== verlengen.
+
+
+!!!!En tel er 2 bij op...
+Het leuke van ==Lists== is dat je er berekeningen op kunt gaan toepassen.
+Stel we willen bij elk getal in de ==List== het getal 2 optellen.
+We ''mappen'' dan de ==functie== ''telTweeOpBij'' op
+""elk"" getal uit de ==List==:
+[[[
+List.map telTweeOpBij (List.range 1 9)
+]]]
+We hadden in plaats van telTweeOpBij ook kunnen schrijven
+[[[
+List.map ( \x -> x + 2 ) (List.range 1 9)
+]]]
+waarbij ==\x -> x + 2== eigenlijk wil zeggen: wat er in gaat noemen we ''x''
+en er komt uit ''x + 2''. Je kunt dit vergelijken met een functie ''f''
+in de wiskunde
+[[[
+f(x) = x + 2
+]]]
+alleen heeft de ==functie==  ==\x -> x + 2== geen naam.
+Bij de definitie van ''telTweeOpBij'' een stukje terug hadden we de
+functie wel een naam gegeven (namelijk ''telTweeOpBij'').
+Herhalen we nu die definitie maar dan met naam ''f'' in plaats van
+''telTweeOpBij'' dan staat er:
+[[[
+f x = x + 2
+]]]
+Hee, da's bijna wiskunde!?
+We hebben nu dus 2 manieren gezien om een functie te definiëren
+[[[
+f x = x + 2
+\x -> x + 2
+]]]
+De eerste definieert functie ''f'' en de tweede heeft geen naam, is anoniem.
+We noemen die tweede definitie dan ook een ''anonymous function''.
+
+Enfin, de constructie
+[[[
+List.map ( \x -> x + 2 ) (List.range 1 9)
+]]]
+is niet super-leesbaar. Je mag dit in ''elm'' ook anders opschrijven:
+Neem ==(List.range 1 9)== en ''map'' op elk element de
+''functie'' ==( \x -> x + 2 )==. Dit ziet er dan uit als:
+[[[
+(List.range 1 9)
+	|> List.map ( \x -> x + 2 )
+]]]
+In de ''repl'' moet je op het eind van een regel een ''backslash'' (\\) typen
+(die staat hier door) om op de volgende regel door te gaan.
+
+!!!List.map functie
+Met behulp van de map (List.map) kunnen we dus een functie toepassen op
+elk element van een List.
+
+[[[
+List.map eenFunctie eenList
+]]]
+De functie eenFunctie wordt toegepast op eenList en het resultaat is een List
+met evenveel elementen als eenList. Het i-de element van het resultaat
+is het resutaat van toepassing van functie eenFunctie op de list eenList.
+
+Stel ik wil alle kwadraten van de getallen 1 tot en met 30:
+
+[[[
+List.map ( \x -> x * x ) ( List.range 1 30 )
+]]]
+
+!!!List.filter
+De filter-functie (voluit: 'List.filter') neemt als input een list en
+de output is een lijst met (alleen die) elementen uit de input die aan een
+voorwaarde voldoen. De voorwaarde wordt gesteld door een andere functie
+die (losgelaten op een element van de list) true of false teruggeeft.
+
+Zo geeft de functie ( \x -> x > 5 )  true terug als de input
+groter is dan 5 en anders false.
+Kijken we naar
+[[[
+List.filter ( \x -> x > 5) (List.range 1 30)
+]]]
+dan wordt er dus een list opgebouwd uit die elementen uit de range 1 tot en met 9
+die groter zijn dan 5.
+
+!!!Probeer zelf:
+Hoe krijg ik met behulp van List.map en/of List.filter
+van de getallen van 1 tot en met 60
+die kwadraten die groter zijn dan 28?
+
+!!!List.foldl
+Na de map en filter, die vrij intuïtief zijn als je ze een keer gezien hebt,
+komen we bij de 'fold'. Deze komt voor als 'foldl' en 'foldr',
+misschien kun je al vermoeden waar 'l' en 'r' voor staan?
+
+We beginnen met een voorbeeld:
+Stel we willen weten hoeveel de getallen van 1 tot en met 100 bij elkaar opgeteld zijn,
+dus
+[[[
+1 + 2 + 3 + 4 + 5 + ... + 99 + 100
+]]]
+Denk hier eerst een minuutje over na voor je verder leest.
+
+We hebben al gezien dat we met ==(List.range 1 100)==
+(een list met) de getallen 1 tot en met 100 krijgen.
+Hoe krijgen we alle elementen uit de list opgeteld?
+We doorlopen de lijst: elk element wordt bij het tussenresultaat opgeteld.
+Dit lijkt wat op 'map', omdat op elk element van de list een berekening wordt uitgevoerd,
+echter wordt het 'tussenresultaat' meegenomen, dit wordt 'geïnjecteerd' in de functie.
+
+Die berekening wordt geformuleerd als een functie:
+
+[[[
+( \x -> (\y -> x+y ) )
+]]]
+Aj, dat ziet er lastig uit...!?
+Valt mee als we het stapje voor stapje bekijken.
+Het is een functie die als input een 'x' verwacht. Dat is het element van de list.
+Bij de eerste aanroep is dat dus 1, 2e aanroep een 2, 3e aanroep een 3 en zo door.
+Deze functie geeft een andere functie terug:
+[[[
+( \y -> x+y )
+]]]
+een functie die een 'y' ontvangt (het tussenresultaat, de optelling tot nu toe)
+en een nieuw tussenresultaat berekent: in dit geval door bij het vorige
+tussenresultaat de waarde van het huidige list-element op te tellen.
+Elm zorgt ervoor dat het nieuwe tussenresultaat bij het volgende list-element
+gebruikt wordt zodat we op het einde van de list alle elementen opgeteld hebben!
+
+We zijn er bijna! We moeten namelijk nog aangeven
+dat we bij het eerste element willen beginnen met tussenresultaat 0!
+
+Als we dit samenvoegen krijgen we
+[[[
+List.foldl ( \x -> (\y -> x + y )) 0 (List.range 1 100)
+]]]
+Je ziet dat 'foldl' als eerste paramter de 'berekeningsfunctie' ontvangt,
+als tweede de initiële waarde en tot slot
+de list waarop de berekening moet worden toegepast.
+
+We kunnen een functie 'telAllesOp' definiëren die een list accepteert
+en alle waarden optelt:
+[[[
+telAllesOp = List.foldl ( \x -> (\y -> x + y )) 0
+]]]
+
+Het is daarna mogelijk om van een list alle elementen op te tellen met
+[[[
+telAllesOp [42,512,4096]
+]]]
+
+!!!Uitdaging
+Definieer nu zelf aan de hand van het voorafgaande met behulp van ''folding'' een
+functie die alle elementen van een list vermenigvuldigt.
+Test deze met de korte lijsten ==[3,4]== en ==[5,12]==
+(doen die je ergens aan denken? misschien als je goed naar de resultaten kijkt: ==25== en ==169==).
+
+
+!!!List.foldr
+Je had wellicht al bedacht dat 'l' en 'r' voor links en rechts staan.
+Als je het in eerdergebruikt voorbeeld 'foldl' vervangt door 'foldr':
+[[[
+List.foldr ( \x -> (\y -> x + y )) 0 (List.range 1 100)
+]]]
+krijg je dan een ander resultaat? Snap je waarom?
+
+Vergelijk ook de twee regels:
+[[[
+List.foldl ( \s -> ( \t -> t ++ s )) "X" [ "a" , "b" , "c" ]
+List.foldr ( \s -> ( \t -> t ++ s )) "X" [ "a" , "b" , "c" ]
+]]]
+hier is het verschil heel duidelijk te zien.
+
+!!!Binomium
+Misschien heb je wel eens gehoord van het binomium van Newton:
+
+[[[
+                       1
+										 1   1
+									 1   2   1
+								 1   2   2   1
+							 1   3   4   3   1
+						 1   4   7   7   4   1
+]]]
+en zo door...
+Het begint met het getal 1, daaronder komen rijen met steeds links én rechts een 1.
+De andere getallen zijn steeds de 2 getallen er schuin boven opgeteld.
+Misschien heb je wel eens een knikkerbaan gezien met spijkertjes in het volgende patroon:
+[[[
+                       .
+                     .   .
+                   .   .   .
+                 .   .   .   .
+               .   .   .   .   .
+]]]
+Het getal dat in het binomium staat is gelijk aan het aantal 'wegen'
+dat naar een spijkertje leidt: een knikker die er van bovenaf in rolt kan steeds links of rechts af.
+Het is bijvoorbeeld op 4 manieren mogelijk om bij een plek te komen waar een 4 staat.
+
+Van 'aantal wegen' is het een redelijk kleine stap naar de 'kans'
+dat de knikker op een bepaalde plek terecht komt.
+De getallen komen op veel plekken terug. Als je ==(a + b)^n== uitrekent staat
+de bijhorende rij (begin te tellen bij 0) voor de coëfficiënten (getallen) die voor de term komen staan:
+
+
+
+!!!!Tweedegraads vergelijking
+Zoals je vast hebt geleerd kun je de zogenaamde tweedegraads vergelijking
+[[[
+a*x^2 + b*x + c = 0
+]]]
+oplossen door de discriminant ==D = b^2 - 4*a*c== uit te rekenen.
+Als D kleiner dan 0 is is er geen reële oplossing,
+als D 0 of groter is zijn er 2 oplossingen (die voor D=0 aan elkaar gelijk zijn).
+
+Definieer een functie ''discriminant'' die gegeven 3 getallen (inderdaad: a, b, c)
+de discrininant berekent:
+[[[
+discriminant a b c = (b * b) - (4 * a * c)
+]]]
+Voor de leesbaarheid is het goed hier de haakjes te zetten!
+
+Zou ==38*x^2 + 12*x + 6==    oplossingen hebben?
+[[[
+discriminant 38 12 6
+]]]
+geeft het antwoord. Dat wil zeggen als het antwoord groter dan 0 is zijn er
+2 verschillende oplossingen voor ''x'', als het antwoord 0 is is er 1 oplossing
+en als het antwoord begint met een ''-'' is er geen (reële) oplossing.
+
+
+
+
+Merk op dat ''elm'' de ''discriminant'' ziet als een functie van het type
+[[[
+number -> number -> number -> number
+]]]
+wat wil zeggen dat de functie achtereenvolgens 3 ==parameters==
+verwacht! Het is dus mogelijk voor tweedegraads vergelijkingen
+waarbij er géén getal (ofwel een 1) voor de x-kwadraat staat
+een alternatieve functie te definiëren om de discriminant te berekeningen
+(noemen de dit de eenheidsdiscriminant) door middel van
+[[[
+eenheidsdiscriminant = discriminant 1
+]]]
+wat dus eigenlijk betekent dat de ==eenheidsdiscriminant== de
+''normale'' ==discriminant== is met voor de ''a'' vast 1 ingevuld.
+Dat wil zeggen dat
+[[[
+discriminant 1 10 2
+]]]
+gelijk moet zijn aan
+[[[
+eenheidsdiscriminant 10 2
+]]]
+Is dat ook zo?

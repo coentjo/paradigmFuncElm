@@ -37,7 +37,7 @@ ${inputFile:Chapters/examples/moreExamples.pillar}$
 
 
 !!Intro Lists
-${inputFile:Chapters/introLists/introLists.pillar}$
+${inputFile:Chapters/introLists_map_filter_fold/introLists_map_filter_fold.pillar}$
 
 !!Wiskundige functie
 ${inputFile:Chapters/wiskunde/functieProgramma.pillar}$
