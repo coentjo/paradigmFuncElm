@@ -41,33 +41,23 @@ Wordt eerst de ==+== of eerst ==*== uitgevoerd? Ofwel: is dit gelijk aan
 ==( 12 + 3 ) * 2== of juist aan == 12 + ( 3 * 2) ==?
 
 !!!!Reken
-Als je zelf de volgorde wil aangeven kun je er voor kiezen op de volgende manier te
-rekenen:
+Als je zelf de volgorde wil aangeven kun je er voor kiezen de haakjes expliciet neer te
+zetten:
 [[[
-add 12 ( multiply 3 2 )
+12 + ( 3 * 2 )
 ]]]
-Hierbij worden er 2 dingen opgeteld (''add''): het eerste is een getal, het andere is
-de uitkomst van de vermenigvuldiging van 3 en 2 (''multiply'').
-
-Stel er zou staan:
+of juist:
 [[[
-multiply ( add 12 3 ) 2
+( 12 +  3 ) * 2
 ]]]
-dan zou juist de uitkomst van ==12+3== vermenigvuldigd worden met 2.
 
-Nu is ''add'' een functie die
-normaalgesproken 2 parameters krijgt, maar in de taal ==elm== kun je de
-parameters 1 voor 1 aan een functie voeren. De combinatie
-==add 2== is een optelfunctie die al weet dat ie ''2+..'' gaat doen.
 
-Nu zijn ==add== en ==multiply== al bestaande ==functies==. Je kunt ook zelf
-nieuwe functies erbij programmeren. Met bijvoorbeeld
+Je kunt ook zelf nieuwe functies erbij programmeren. Met bijvoorbeeld
 [[[
 telTweeOpBij x = x + 2
 ]]]
 wordt een nieuwe ==functie== ''telTweeOpBij'' (deze naam kun je dus zelf kiezen)
-gedefinieerd door de  al genoemde
-==add 2== constructie (deze combinatie ís ook weer een functie).
+gedefinieerd.
 Na deze definitie kun je schrijven
 [[[
 telTweeOpBij 5
@@ -344,7 +334,7 @@ eenheidsdiscriminant 10 2
 Is dat ook zo?
 
 
-!!!Mogelijke challenge: Binomium 
+!!!Mogelijke challenge: Binomium
 Misschien heb je wel eens gehoord van het binomium van Newton:
 
 [[[
